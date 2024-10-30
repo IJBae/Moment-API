@@ -12,9 +12,6 @@ use App\Libraries\slack_api\SlackChat;
 class ZenithKM
 {
     use ResponseTrait;
-    //// private $app_id = '243424';
-    //// private $app_key = '500a99d34478a54c7c4fbfc04ff90512';
-    //// private $client_secret = 'V1lTM4d4FrLoxVhnISLqGaLdhwsvcGTT';
     private $app_id;
     private $app_key;
     private $client_secret;
@@ -117,7 +114,7 @@ class ZenithKM
         $request = 'adAccounts/pages';
         $param = array('config' => 'ON,OFF,DEL', 'page' => 0, 'size' => 2000); //enum{ON, OFF, DEL}
         $result = $this->getCall($request, $param);
-        return $result; //[id] => 41250 [name] => 강남조은눈안과 [memberType] => MASTER [config] => ON
+        return $result;
     }
      
     private function getAdAccount($adAccountId = '')
@@ -125,7 +122,7 @@ class ZenithKM
         $request = "adAccounts/{$adAccountId}";
         $this->ad_account_id = $adAccountId;
         $result = $this->getCall($request);
-        return $result; //Array ( [id] => 41250 [name] => 강남조은눈안과 [ownerCompany] => Array ( [businessRegistrationNumber] => 220-88-36643 [name] => 주식회사 케어랩스 ) [advertiser] => Array ( [businessRegistrationNumber] => 104-90-96978 [name] => 강남조은눈안과 ) [type] => BUSINESS [config] => ON [isAdminStop] => [isOutOfBalance] => [statusDescription] => 운영중 )
+        return $result;
     }
      
     public function updateAdAccounts()
